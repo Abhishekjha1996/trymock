@@ -15,9 +15,6 @@ bookRoute.get("/", async (req, res) => {
     } catch (error) {
       res.status(404).send({ msg: error.message });
     }
-  } else if (id) {
-    const data = await BookModel.findById(id);
-    res.status(200).send(data);
   } else if (category && author) {
     try {
       const data = await BookModel.findById({

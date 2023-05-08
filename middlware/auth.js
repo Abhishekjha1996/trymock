@@ -4,7 +4,7 @@ const auth = (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
 
   if (token) {
-    const ver = jsw.verify(token, "secretkey");
+    const ver = jwt.verify(token, "secretkey");
     if (ver) {
       req.body._id = ver._id;
       next();
